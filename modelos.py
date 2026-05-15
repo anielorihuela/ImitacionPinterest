@@ -9,6 +9,10 @@ class UsuarioRespuesta(BaseModel):
     id_usuario: str
     nombre_usuario: str
 
+class UsuarioActualizar(BaseModel):
+    nombre_usuario: Optional[str] = Field(default=None, min_length=5, max_length=200)
+    contrasena: Optional[str] = Field(default=None, min_length=3, max_length=30)
+
 class PostCrear(BaseModel):
     descripcion: Optional[str] = Field(default=None, max_length=500)
     imagen_url: str = Field(max_length=700)
@@ -19,6 +23,9 @@ class PostRespuesta(BaseModel):
     imagen_url: str
     nombre_usuario: str
 
+class PostActualizar(BaseModel):
+    descripcion: Optional[str] = Field(default=None, max_length=500)
+    
 class ComentarioCrear(BaseModel):
     contenido: str = Field(max_length=900)
     #id post se obtiene del header

@@ -132,6 +132,43 @@ async def crear_tablero(tablero: TableroCrear, nombre_usuario: str = Header(...)
             }
             
 # PATCH
+@app.patch("/posts/{post_id}", response_model=PostRespuesta)
+async def actualizar_post(post_id: str, post: PostActualizar, nombre_usuario: str = Header(...)):
+    with psycopg.connect(DB_CONNECTION_STRING) as conn:
+        with conn.cursor() as cur:
+            # Actualizamos la descripción del post
+            if post.descripcion is not None:
+                cur.execute("UPDATE Post SET descripcion = %s WHERE id = %s;", (post.descripcion, post_id))
+                conn.commit()
+            
+            # Obtenemos la información actualizada del post
+            cur.execute("SELECT url_imagen FROM Post WHERE id = %s;", (post_id,))
+            res = cur.fetchall()
+            if not res:
+                raise HTTPException(status_code=404, detail="Post no encontrado")
+            
+            imagen_url = res[0][0]
+            
+            return {
+                "id_post": post_id, 
+                "descripcion": post.descripcion,
+                "imagen_url": imagen_url,
+                "nombre_usuario": nombre_usuario
+            }
+ 
+@app.patch("/usarios/{id_usuario}", response_model=UsuarioRespuesta)
+async def actualizar_usuario(id_usuario: str, usuario: UsuarioCrear):
+    with psycopg.connect(DB_CONNECTION_STRING) as conn:
+        with conn.cursor() as cur:
+            # Actualizamos el nombre de usuario y contraseña
+            cur.execute("UPDATE Usuario SET nombre_de_usuario = %s, contrasena = %s WHERE id = %s;", (usuario.nombre_usuario, usuario.contrasena, id_usuario))
+            conn.commit()
+            
+            return {
+                "id_usuario": id_usuario, 
+                "nombre_usuario": usuario.nombre_usuario
+            }          
+            
 @app.patch("/tableros/{tablero_id}", response_model=TableroRespuesta)
 async def actualizar_tablero(tablero_id: str, tablero: TableroActualizar, nombre_usuario: str = Header(...)):
     with psycopg.connect(DB_CONNECTION_STRING) as conn:
