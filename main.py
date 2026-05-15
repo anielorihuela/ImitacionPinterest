@@ -2,9 +2,8 @@ from modelos import *
 from fastapi import FastAPI, HTTPException, Header
 from fastapi.middleware.cors import CORSMiddleware
 import psycopg
-from dotenv import load_dotenv
 from conexion import DB_CONNECTION_STRING
-from uuid import UUID, uuid4
+from uuid import uuid4
 
 app = FastAPI()
 
@@ -60,11 +59,11 @@ async def get_posts_tablero(id_tablero: str):
             datos = cur.fetchall()
             return datos
 
-@app.get("/tablerosUsuario/{nombre_usuario}")
-async def get_tableros_usuario(nombre_usuario: str):
+@app.get("/tablerosUsuario/{id_usuario}")
+async def get_tableros_usuario(id_usuario: str):
     with psycopg.connect(DB_CONNECTION_STRING) as conn:
         with conn.cursor() as cur:
-            cur.execute("SELECT * FROM Tablero WHERE nombre_de_usuario = %s;", (nombre_usuario,))
+            cur.execute("SELECT * FROM Tablero WHERE usuario_id = %s;", (id_usuario,))
             datos = cur.fetchall()
             return datos
         
@@ -90,7 +89,7 @@ async def crear_usuario(usuario: UsuarioCrear):
             }
 
 @app.post("/posts", status_code=201, response_model=PostRespuesta)
-async def crear_post(post: PostCrear, usuario_id: str = Header(...), nombre_usuario: str = Header(...)):
+async def crear_post(post: PostCrear, usuario_id: str = Header(...)):
     with psycopg.connect(DB_CONNECTION_STRING) as conn:
         with conn.cursor() as cur:
             id_post = str(uuid4())
@@ -100,11 +99,11 @@ async def crear_post(post: PostCrear, usuario_id: str = Header(...), nombre_usua
                 "id_post": id_post, 
                 "descripcion": post.descripcion,
                 "imagen_url": post.imagen_url,
-                "nombre_usuario": nombre_usuario
+                "id_usuario": usuario_id
             }
 
 @app.post("/posts/{post_id}/comentarios", status_code=201, response_model=ComentarioRespuesta)
-async def crear_comentario(comentario: ComentarioCrear, post_id: str, usuario_id: str = Header(...), nombre_usuario: str = Header(...)):
+async def crear_comentario(comentario: ComentarioCrear, post_id: str, usuario_id: str = Header(...)):
     with psycopg.connect(DB_CONNECTION_STRING) as conn:
         with conn.cursor() as cur:
             id_comentario = str(uuid4())
@@ -114,26 +113,26 @@ async def crear_comentario(comentario: ComentarioCrear, post_id: str, usuario_id
                 "id_comentario": id_comentario, 
                 "contenido": comentario.contenido,
                 "id_post": post_id,
-                "nombre_usuario": nombre_usuario
+                "id_usuario": usuario_id
             }
 
 @app.post("/tableros", status_code=201, response_model=TableroRespuesta)
-async def crear_tablero(tablero: TableroCrear, nombre_usuario: str = Header(...)):
+async def crear_tablero(tablero: TableroCrear, usuario_id: str = Header(...)):
     with psycopg.connect(DB_CONNECTION_STRING) as conn:
         with conn.cursor() as cur:
             id_tablero = str(uuid4())
-            cur.execute("INSERT INTO Tablero (id, nombre, nombre_de_usuario) VALUES (%s, %s, %s);", (id_tablero, tablero.nombre_tablero, nombre_usuario))
+            cur.execute("INSERT INTO Tablero (id, nombre, usuario_id) VALUES (%s, %s, %s);", (id_tablero, tablero.nombre_tablero, usuario_id))
             conn.commit()
             return {
                 "id_tablero": id_tablero, 
                 "nombre_tablero": tablero.nombre_tablero,
-                "nombre_usuario": nombre_usuario,
+                "id_usuario": usuario_id,
                 "posts": []
             }
             
 # PATCH
 @app.patch("/posts/{post_id}", response_model=PostRespuesta)
-async def actualizar_post(post_id: str, post: PostActualizar, nombre_usuario: str = Header(...)):
+async def actualizar_post(post_id: str, post: PostActualizar, usuario_id: str = Header(...)):
     with psycopg.connect(DB_CONNECTION_STRING) as conn:
         with conn.cursor() as cur:
             # Actualizamos la descripción del post
@@ -142,49 +141,57 @@ async def actualizar_post(post_id: str, post: PostActualizar, nombre_usuario: st
                 conn.commit()
             
             # Obtenemos la información actualizada del post
-            cur.execute("SELECT url_imagen FROM Post WHERE id = %s;", (post_id,))
+            cur.execute("SELECT descripcion, url_imagen FROM Post WHERE id = %s;", (post_id,))
             res = cur.fetchall()
             if not res:
                 raise HTTPException(status_code=404, detail="Post no encontrado")
             
-            imagen_url = res[0][0]
+            descripcion = res[0][0]
+            imagen_url = res[0][1]
             
             return {
                 "id_post": post_id, 
-                "descripcion": post.descripcion,
+                "descripcion": descripcion,
                 "imagen_url": imagen_url,
-                "nombre_usuario": nombre_usuario
+                "id_usuario": usuario_id
             }
  
-@app.patch("/usarios/{id_usuario}", response_model=UsuarioRespuesta)
-async def actualizar_usuario(id_usuario: str, usuario: UsuarioCrear):
+@app.patch("/usuarios/{id_usuario}", response_model=UsuarioRespuesta)
+async def actualizar_usuario(id_usuario: str, usuario: UsuarioActualizar):
     with psycopg.connect(DB_CONNECTION_STRING) as conn:
         with conn.cursor() as cur:
-            # Actualizamos el nombre de usuario y contraseña
-            cur.execute("UPDATE Usuario SET nombre_de_usuario = %s, contrasena = %s WHERE id = %s;", (usuario.nombre_usuario, usuario.contrasena, id_usuario))
+            # Actualizamos solo los campos que no son None
+            if usuario.nombre_usuario is not None:
+                cur.execute("UPDATE Usuario SET nombre_de_usuario = %s WHERE id = %s;", (usuario.nombre_usuario, id_usuario))
+            if usuario.contrasena is not None:
+                cur.execute("UPDATE Usuario SET contrasena = %s WHERE id = %s;", (usuario.contrasena, id_usuario))
             conn.commit()
+            
+            # Obtenemos el nombre_usuario actualizado
+            cur.execute("SELECT nombre_de_usuario FROM Usuario WHERE id = %s;", (id_usuario,))
+            res = cur.fetchall()
+            nombre_usuario = res[0][0]
             
             return {
                 "id_usuario": id_usuario, 
-                "nombre_usuario": usuario.nombre_usuario
+                "nombre_usuario": nombre_usuario
             }          
             
 @app.patch("/tableros/{tablero_id}", response_model=TableroRespuesta)
-async def actualizar_tablero(tablero_id: str, tablero: TableroActualizar, nombre_usuario: str = Header(...)):
+async def actualizar_tablero(tablero_id: str, tablero: TableroActualizar, usuario_id: str = Header(...)):
     with psycopg.connect(DB_CONNECTION_STRING) as conn:
         with conn.cursor() as cur:
             # Primero agregamos el post al tablero
-            cur.execute("INSERT INTO TableroPosts(post_id, tablero_id) VALUES(%s, %s);", (tablero.post_id, tablero_id))
+            cur.execute("INSERT INTO TableroPosts(post_id, tablero_id) VALUES(%s, %s);", (tablero.id_post, tablero_id))
             conn.commit()
             
             # Encontramos el nombre del tablero
-            cur.execute("SELECT nombre, nombre_de_usuario FROM Tablero WHERE id = %s;", (tablero_id,))
+            cur.execute("SELECT nombre FROM Tablero WHERE id = %s;", (tablero_id,))
             res = cur.fetchall()
             if not res:
                 raise HTTPException(status_code=404, detail="Tablero no encontrado")
             
             nombre_tablero = res[0][0]
-            nombre_usuario_tablero = res[0][1]
             
             # Si se actualiza el nombre del tablero
             if tablero.nombre_tablero is not None:
@@ -200,7 +207,7 @@ async def actualizar_tablero(tablero_id: str, tablero: TableroActualizar, nombre
             return {
                 "id_tablero": tablero_id, 
                 "nombre_tablero": nombre_tablero,
-                "nombre_usuario": nombre_usuario_tablero,
+                "id_usuario": usuario_id,
                 "posts": posts_lista_ret
             }
 

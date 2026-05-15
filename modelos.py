@@ -21,7 +21,7 @@ class PostRespuesta(BaseModel):
     id_post: str
     descripcion: Optional[str]
     imagen_url: str
-    nombre_usuario: str
+    id_usuario: str
 
 class PostActualizar(BaseModel):
     descripcion: Optional[str] = Field(default=None, max_length=500)
@@ -34,7 +34,7 @@ class ComentarioRespuesta(BaseModel):
     id_comentario: str 
     contenido: str
     id_post: str
-    nombre_usuario: str
+    id_usuario: str
 
 class TableroCrear(BaseModel):
     nombre_tablero: str = Field(max_length=200)
@@ -42,9 +42,9 @@ class TableroCrear(BaseModel):
 class TableroRespuesta(BaseModel):
     id_tablero: str
     nombre_tablero: str
-    nombre_usuario: str
+    id_usuario: str
     posts: Optional[list[str]] = None
 
 class TableroActualizar(BaseModel):
     nombre_tablero: Optional[str] = Field(default=None, max_length=200)
-    post_id: str
+    id_post: str
