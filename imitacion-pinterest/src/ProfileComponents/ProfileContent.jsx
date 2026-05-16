@@ -49,7 +49,7 @@ function ProfileContent({ user, boards, pins, useState}) {
           ) : (
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-start">
             {currentBoards.map((board) => (
-              <Board key={board.id} id={board.id} nombre={board.nombre} />
+              <Board key={board.id} id={board.id} nombre={board.nombre} nav={() => navigate(`/modboard/${board.id}`)}/>
             ))}
             </div>
           )}

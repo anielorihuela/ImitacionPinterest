@@ -1,0 +1,22 @@
+[
+  { "id": 1, "tablero_id": 1, "pin_id": 7, "fecha_agregado": "2026-03-08" },
+  { "id": 2, "tablero_id": 1, "pin_id": 14, "fecha_agregado": "2026-04-12" },
+  { "id": 3, "tablero_id": 2, "pin_id": 2, "fecha_agregado": "2026-01-18" },
+  { "id": 4, "tablero_id": 2, "pin_id": 12, "fecha_agregado": "2026-04-05" },
+  { "id": 5, "tablero_id": 3, "pin_id": 3, "fecha_agregado": "2026-02-05" },
+  { "id": 6, "tablero_id": 3, "pin_id": 16, "fecha_agregado": "2026-04-18" },
+  { "id": 7, "tablero_id": 4, "pin_id": 4, "fecha_agregado": "2026-02-12" },
+  { "id": 8, "tablero_id": 4, "pin_id": 9, "fecha_agregado": "2026-03-22" },
+  { "id": 9, "tablero_id": 5, "pin_id": 5, "fecha_agregado": "2026-02-20" },
+  { "id": 10, "tablero_id": 5, "pin_id": 11, "fecha_agregado": "2026-04-02" },
+  { "id": 11, "tablero_id": 6, "pin_id": 6, "fecha_agregado": "2026-03-01" },
+  { "id": 12, "tablero_id": 6, "pin_id": 17, "fecha_agregado": "2026-04-25" },
+  { "id": 13, "tablero_id": 7, "pin_id": 7, "fecha_agregado": "2026-03-08" },
+  { "id": 14, "tablero_id": 8, "pin_id": 8, "fecha_agregado": "2026-03-15" },
+  { "id": 15, "tablero_id": 10, "pin_id": 10, "fecha_agregado": "2026-03-25" },
+  { "id": 16, "tablero_id": 10, "pin_id": 19, "fecha_agregado": "2026-05-01" },
+  { "id": 17, "tablero_id": 13, "pin_id": 13, "fecha_agregado": "2026-04-10" },
+  { "id": 18, "tablero_id": 19, "pin_id": 16, "fecha_agregado": "2026-05-05" },
+  { "id": 19, "tablero_id": 20, "pin_id": 5, "fecha_agregado": "2026-05-10" },
+  { "id": 20, "tablero_id": 20, "pin_id": 20, "fecha_agregado": "2026-05-12" }
+]

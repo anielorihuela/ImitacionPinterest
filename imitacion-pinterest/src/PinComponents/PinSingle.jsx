@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // 👈 Importamos el router
 
 function Pin({ id, descripcion, url_imagen, nav}) {
 

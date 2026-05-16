@@ -16,7 +16,7 @@
     { "id": 15, "descripcion": "Planificación de sprints con notas adhesivas", "url_imagen": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=500", "usuario_id": 15},
     { "id": 16, "descripcion": "Estructura de cristal geométrico abstracto", "url_imagen": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=500", "usuario_id": 16},
     { "id": 17, "descripcion": "Gafas de realidad virtual sobre mesa", "url_imagen": "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=500", "usuario_id": 17},
-    { "id": 19, "descripcion": "Setup cyberpunk con luces LED RGB moradas", "url_imagen": "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=500", "usuario_id": 19},
+    { "id": 19, "descripcion": "Setup cyberpunk con luces LED RGB moradas", "url_imagen": "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=500", "usuario_id": 0},
     { "id": 20, "descripcion": "Audífonos de estudio sobre escritorio de madera", "url_imagen": "https://images.unsplash.com/photo-1618336753974-aae8e04506aa?q=80&w=500", "usuario_id": 20}
 ]
     

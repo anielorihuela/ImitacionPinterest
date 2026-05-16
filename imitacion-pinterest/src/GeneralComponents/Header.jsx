@@ -8,13 +8,13 @@ function Header({nombre_de_usuario = "Visitante"}) {
         <nav className="navbar navbar-expand-lg bg-body-tertiary shadow-lg">
             <div className="container-fluid">
                 <NavLink className="navbar-brand" to="/">
-                    <img src="./src/assets/Logo.svg" alt="Logo" style={{ width: "3.5rem", height: "3.5rem"}} className="d-inline-block align-text-top"/>
+                    <img src="/Logo.svg" alt="Logo" style={{ width: "3.5rem", height: "3.5rem"}} className="d-inline-block align-text-top"/>
                     Pinterest 2.0
                 </NavLink>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item">
-                    <NavLink className="nav-link" aria-current="page" to="/">
+                    <NavLink className="nav-link" to="/">
                         Home
                     </NavLink>
                     </li>

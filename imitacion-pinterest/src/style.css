@@ -140,15 +140,13 @@ body {
     font-weight: bold;
     color: var(--text-dark);
     background: transparent;
-}
-.card-text {
-    font-size: 1.1em;
-    font-weight: bolder;
-    text-align: center;
-    justify-content: center;
-    color: var(--text-dark);
-}
 
+    .card-text {
+        font-size: 1.1em;
+        font-weight: bolder;
+        color: var(--text-dark);
+    }
+}
 .card:hover .card-overlay {
     opacity: 1;
 }

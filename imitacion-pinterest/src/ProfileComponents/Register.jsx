@@ -19,7 +19,7 @@ function Register () {
         alert("Error: Las contraseñas no coinciden.");
     } else {
         // Aquí iría la lógica para registrar al usuario en la BD
-        localStorage.setItem('user_session', JSON.stringify({ id: Date.now(), user: username.trim() }));
+        localStorage.setItem('user_session', JSON.stringify({ id: Date.now(), nombre_de_usuario: username.trim() }));
         navigate('/profile');
     }
   };

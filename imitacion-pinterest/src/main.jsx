@@ -7,6 +7,9 @@ import PinDetail from './PinComponents/PinDetail.jsx'
 import ProfilePage from './ProfileComponents/ProfilePage.jsx'
 import Login from './ProfileComponents/Login.jsx'
 import Register from './ProfileComponents/Register.jsx'
+import Discover from './PagesComponents/Discover.jsx'
+import Update from './PagesComponents/Update.jsx'
+import Create from './PagesComponents/Create.jsx'
 import './scss/styles.scss'
 import './style.css'
 import * as bootstrap from 'bootstrap'
@@ -29,10 +32,17 @@ createRoot(document.getElementById('root')).render(
             </>
         } />
         <Route path="/profile" element={<ProfilePage /> } />
-        <Route path="/create" element={<h2 className="text-center mt-5">Página de creación en construcción</h2>} />
-        <Route path="/discover" element={<h2 className="text-center mt-5">Página de descubrimiento en construcción</h2>} />
         <Route path="/profile/login" element={<Login />} />
         <Route path="/profile/register" element={<Register />} />
+        <Route path="/create" element={<Create />} />
+        <Route path="/discover" element={<Discover />} />
+        <Route path="/modboard/:id" element={
+          <Update type="board" />
+        } />
+        <Route path="/modpin/:id" element={
+          <Update type="pin" />
+        } />
+        <Route path="*" element={<h2 className="text-center mt-5">404 - Página no encontrada</h2>} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

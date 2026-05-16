@@ -9,14 +9,14 @@ import commentData from '../datos/comentarios.json';
 const PinDetail = () => {
   const {id} = useParams();
   const navigate = useNavigate();
-  const [comentario, setComentarios] = useState('');
+  const [comentario, setComentario] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
     
     //subimos el comentario a la BD, pero como no tenemos, solo lo mostramos en consola
     console.log("Comentario enviado:", comentario);
     alert("¡Comentario enviado! (Simulación, no se guarda realmente)");
-    setComentarios('');
+    setComentario('');
   }
   const pin = pinesData.find(p => p.id === parseInt(id, 10));
   const usuario = userData.find(u => u.id === parseInt(id, 10)) || "Desconocido";
