@@ -1,0 +1,22 @@
+[
+    { "id": 1, "nombre": "Arquitectura Limpia", "usuario_id": 1 },
+    { "id": 2, "nombre": "PCBs y Soldadura", "usuario_id": 2 },
+    { "id": 3, "nombre": "Inspiración Glassmorphism", "usuario_id": 3 },
+    { "id": 4, "nombre": "Racks de Servidores", "usuario_id": 4 },
+    { "id": 5, "nombre": "Componentes React", "usuario_id": 5 },
+    { "id": 6, "nombre": "Brazos Robóticos", "usuario_id": 6 },
+    { "id": 7, "nombre": "Redes Neuronales", "usuario_id": 7 },
+    { "id": 8, "nombre": "Hacking Ético", "usuario_id": 8 },
+    { "id": 9, "nombre": "Arquitectura AWS", "usuario_id": 9 },
+    { "id": 10, "nombre": "Interfaces Móviles", "usuario_id": 10 },
+    { "id": 11, "nombre": "Automatización QA", "usuario_id": 11 },
+    { "id": 12, "nombre": "Bases de Datos", "usuario_id": 12 },
+    { "id": 13, "nombre": "Pixel Art 2D", "usuario_id": 13 },
+    { "id": 14, "nombre": "Visualización de Datos", "usuario_id": 14 },
+    { "id": 15, "nombre": "Contenedores Docker", "usuario_id": 15 },
+    { "id": 16, "nombre": "Matemáticas Discretas", "usuario_id": 16 },
+    { "id": 17, "nombre": "Topologías de Red", "usuario_id": 17 },
+    { "id": 18, "nombre": "Sensores IoT", "usuario_id": 18 },
+    { "id": 19, "nombre": "Renderizado 3D", "usuario_id": 19 },
+    { "id": 20, "nombre": "Terminales Custom", "usuario_id": 20 }
+]

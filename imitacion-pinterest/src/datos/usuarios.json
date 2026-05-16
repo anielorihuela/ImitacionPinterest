@@ -1,0 +1,23 @@
+[
+    { "id": 0, "nombre_de_usuario": "admin", "contrasena": "admin123" },
+    { "id": 1, "nombre_de_usuario": "alice_dev", "contrasena": "123456" },
+    { "id": 2, "nombre_de_usuario": "bob_hardware", "contrasena": "654321" },
+    { "id": 3, "nombre_de_usuario": "charlie_ux", "contrasena": "abcdef" },
+    { "id": 4, "nombre_de_usuario": "diana_sys", "contrasena": "fedcba" },
+    { "id": 5, "nombre_de_usuario": "eva_frontend", "contrasena": "111111" },
+    { "id": 6, "nombre_de_usuario": "frank_robotics", "contrasena": "222222" },
+    { "id": 7, "nombre_de_usuario": "grace_ai", "contrasena": "333333" },
+    { "id": 8, "nombre_de_usuario": "hector_sec", "contrasena": "444444" },
+    { "id": 9, "nombre_de_usuario": "irene_cloud", "contrasena": "555555" },
+    { "id": 10, "nombre_de_usuario": "jack_mobile", "contrasena": "666666" },
+    { "id": 11, "nombre_de_usuario": "karen_qa", "contrasena": "777777" },
+    { "id": 12, "nombre_de_usuario": "leo_backend", "contrasena": "888888" },
+    { "id": 13, "nombre_de_usuario": "mia_game_dev", "contrasena": "999999" },
+    { "id": 14, "nombre_de_usuario": "nina_data", "contrasena": "000000" },
+    { "id": 15, "nombre_de_usuario": "oscar_ops", "contrasena": "111111" },
+    { "id": 16, "nombre_de_usuario": "paula_math", "contrasena": "222222" },
+    { "id": 17, "nombre_de_usuario": "quinn_net", "contrasena": "333333"},
+    { "id": 18, "nombre_de_usuario": "raul_iot", "contrasena": "444444"},
+    { "id": 19, "nombre_de_usuario": "sara_3d", "contrasena": "555555"},
+    { "id": 20, "nombre_de_usuario": "tom_linux", "contrasena": "666666"}
+]

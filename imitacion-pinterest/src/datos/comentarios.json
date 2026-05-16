@@ -1,0 +1,25 @@
+[
+  { "id": 1, "texto": "¡Excelente distribución de componentes! Tomaré nota para mi diseño.", "usuario_id": 3, "pin_id": 2, "fecha_comentario": "2026-02-18" },
+  { "id": 2, "texto": "Ese esquema de arquitectura limpia me salvó el examen de patrones.", "usuario_id": 5, "pin_id": 7, "fecha_comentario": "2026-03-10" },
+  { "id": 3, "texto": "Me encanta el teclado, ¿qué switches estás usando?", "usuario_id": 8, "pin_id": 13, "fecha_comentario": "2026-04-01" },
+  { "id": 4, "texto": "El cable management de ese rack es una obra de arte.", "usuario_id": 20, "pin_id": 4, "fecha_comentario": "2026-01-20" },
+  { "id": 5, "texto": "Ese script de Bash automatizado me vendría genial, ¿está en GitHub?", "usuario_id": 1, "pin_id": 8, "fecha_comentario": "2026-03-02" },
+  { "id": 6, "texto": "¿La cinemática inversa de ese brazo robótico la calculaste en MATLAB?", "usuario_id": 2, "pin_id": 6, "fecha_comentario": "2026-03-05" },
+  { "id": 7, "texto": "El degradado Aura neón se ve increíble con el modo oscuro activado.", "usuario_id": 13, "pin_id": 3, "fecha_comentario": "2026-02-10" },
+  { "id": 8, "texto": "Esa interfaz de Figma cumple al 100% con las heurísticas de Nielsen.", "usuario_id": 14, "pin_id": 10, "fecha_comentario": "2026-03-28" },
+  { "id": 9, "texto": "Brutal el setup. ¿Qué monitores son? Tienen muy buena densidad de píxeles.", "usuario_id": 6, "pin_id": 11, "fecha_comentario": "2026-04-22" },
+  { "id": 10, "texto": "¿Qué microcontrolador es el de la placa? ¿Soporta FreeRTOS?", "usuario_id": 18, "pin_id": 12, "fecha_comentario": "2026-04-06" },
+  { "id": 11, "texto": "3¡Esa terminal ZSH se ve limpiecísima! Pasa el archivo .zshrc porfa.", "usuario_id": 12, "pin_id": 5, "fecha_comentario": "2026-02-22" },
+  { "id": 12, "texto": "Justo lo que necesitaba para estructurar mi base de datos relacional.", "usuario_id": 15, "pin_id": 14, "fecha_comentario": "2026-04-13" },
+  { "id": 13, "texto": "El tracking de los sprints con Kanban físico siempre funciona mejor.", "usuario_id": 11, "pin_id": 15, "fecha_comentario": "2026-04-19" },
+  { "id": 14, "texto": "Esa estructura de cristal abstracto quedaría genial para un shader 3D.", "usuario_id": 19, "pin_id": 16, "fecha_comentario": "2026-04-20" },
+  { "id": 15, "texto": "Las gafas VR, ¿las están usando para simulación de gemelos digitales?", "usuario_id": 4, "pin_id": 17, "fecha_comentario": "2026-04-26" },
+  { "id": 16, "texto": "La maquetación en papel antes del código evita horas de refactorización.", "usuario_id": 10, "pin_id": 18, "fecha_comentario": "2026-05-02" },
+  { "id": 17, "texto": "Esos colores RGB morados me dan vibras de Blade Runner. ¡10/10!", "usuario_id": 9, "pin_id": 19, "fecha_comentario": "2026-05-06" },
+  { "id": 18, "texto": "Los audífonos de estudio mitigan perfecto el ruido cuando estás codeando.", "usuario_id": 16, "pin_id": 20, "fecha_comentario": "2026-05-11" },
+  { "id": 19, "texto": "¿Esos blades del data center están corriendo sobre Kubernetes?", "usuario_id": 17, "pin_id": 9, "fecha_comentario": "2026-03-24" },
+  { "id": 20, "texto": "El renderizado del setup con esa iluminación quedó de portafolio.", "usuario_id": 7, "pin_id": 1, "fecha_comentario": "2026-01-18" },
+  { "id": 21, "texto": "2¡Esa terminal ZSH se ve limpiecísima! Pasa el archivo .zshrc porfa.", "usuario_id": 12, "pin_id": 5, "fecha_comentario": "2026-02-22" },
+  { "id": 22, "texto": "1¡Esa terminal ZSH se ve limpiecísima! Pasa el archivo .zshrc porfa.", "usuario_id": 12, "pin_id": 5, "fecha_comentario": "2026-02-22" }
+
+]
